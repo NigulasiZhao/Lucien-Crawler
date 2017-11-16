@@ -11,6 +11,6 @@ namespace Lucien_Crawler.Models
 
         public string RegionName { get; set; }
 
-        public Uri Uri { get; set; }
+        public Uri Url { get; set; }
     }
 }
