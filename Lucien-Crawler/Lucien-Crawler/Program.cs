@@ -10,6 +10,10 @@ namespace Lucien_Crawler
 {
     class Program
     {
+        /// <summary>
+        /// 主程序入口
+        /// </summary>
+        /// <param name="args"></param>
         static void Main(string[] args)
         {
             //测试代理IP是否生效：http://1212.ip138.com/ic.asp
@@ -40,7 +44,7 @@ namespace Lucien_Crawler
             };
             Crawler.OnCompleted += (s, e) =>
             {
-                //使用正则表达式清洗网页源代码中的数据
+                //使用正则表达式过滤网页源代码中的数据
                 var links = Regex.Matches(e.PageSource, @"<a[^>]+href=""*(?<href>/v/[^>\s]+)""\s*[^>]*>(?<text>(?!.*img).*?)</a>", RegexOptions.IgnoreCase);
                 foreach (Match match in links)
                 {
